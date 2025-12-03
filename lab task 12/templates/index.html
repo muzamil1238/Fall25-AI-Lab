@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfume Selector</title>
+</head>
+<body>
+    <h1>Select a Perfume</h1>
+    
+    <form method="POST">
+        <select name="perfume">
+            {% for perfume in perfume_list %}
+                <option value="{{ perfume }}">{{ perfume }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Show Details</button>
+    </form>
+
+    {% if perfume_details %}
+    <h2>Perfume Details</h2>
+    <ul>
+        <li><strong>Brand:</strong> {{ perfume_details.brand }}</li>
+        <li><strong>Title:</strong> {{ perfume_details.title }}</li>
+        <li><strong>Type:</strong> {{ perfume_details.type }}</li>
+        <li><strong>Price:</strong> {{ perfume_details.price }}</li>
+        <li><strong>Available:</strong> {{ perfume_details.available }}</li>
+        <li><strong>Sold:</strong> {{ perfume_details.sold }}</li>
+        <li><strong>Size (ml):</strong> {{ perfume_details.size_ml }}</li>
+    </ul>
+    {% endif %}
+</body>
+</html>
